@@ -1,7 +1,9 @@
 # Identificación
 # Titulo del programa handleInitialData
 # Descripción: 
-# Autor Ricardo Morillo Segovia
+# Autores:
+# - Ricardo Morillo Segovia
+# - 
 # Fecha 2019-02-27
 # Version 0.1
 
@@ -10,17 +12,19 @@
 # install.packages("tidyverse")
 library(readxl)
 library(tidyverse)
-
-# install.packages(“readxl”)
-# install.packages("readOffice")
 library(readOffice)
-library(readxl)
 
+# Definir nombre del archivo
+baseDeDatos <- "quejas_clientes_electrico_v1.xlsx"
 # Cargar datos desde Excel
-datos <- read_excel("quejas_clientes_electrico_v1.xlsx")
+datos <- read_excel(baseDeDatos)
 
 # Observar datos iniciales
 View(datos)
 
-table <- table(datos$...6)
+data <- as.data.frame(datos)
 
+for (i in data) {
+  print(i)
+  break
+}
