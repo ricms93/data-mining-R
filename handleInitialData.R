@@ -29,3 +29,25 @@ datosYColumnasMejorados <- datosYColumnasMejorados %>% rename_all(funs(str_repla
 
 #Observar datos con nuevos nombres de columnas
 View(datosYColumnasMejorados)
+
+#Analisis inicial de datos
+
+# Contar datos
+
+totalDeDatosComoLista <- datosYColumnasMejorados %>% count()
+
+totalDeDatos <- totalDeDatosComoLista$n
+
+cat("El total de datos es => ", totalDeDatos)
+
+# Agrupar y contar incidencias por millas
+incidenciasPorMillas <- datosYColumnasMejorados %>% group_by(mileage) %>% count()
+# Agrupar y contar incidencias por parte
+incidenciasPorParte <- datosYColumnasMejorados %>% group_by(part_item) %>% count()
+# Agrupar y contar incidencias por version de Sync
+incidenciasPorVersionSync <- datosYColumnasMejorados %>% group_by(sync_system) %>% count()
+# Agrupar y contar incidencias por concern
+incidenciasPorConcern <- datosYColumnasMejorados %>% group_by(concern) %>% count()
+# Agrupar y contar incidencias por parte y concern
+incidenciasPorParteYConcern <- datosYColumnasMejorados %>% group_by(part_item, concern) %>% count()
+
