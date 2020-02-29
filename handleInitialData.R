@@ -6,10 +6,8 @@
 # Version 0.1
 
 #Instalar librerias
-# install.packages("tm")
 # install.packages("readxl")
 # install.packages("tidyverse")
-library(tm)
 library(readxl)
 library(tidyverse)
 
@@ -21,6 +19,8 @@ library(readxl)
 # Cargar datos desde Excel
 datos <- read_excel("quejas_clientes_electrico_v1.xlsx")
 
+# Observar datos iniciales
 View(datos)
+
 table <- table(datos$...6)
 
