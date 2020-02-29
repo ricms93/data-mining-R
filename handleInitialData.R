@@ -10,6 +10,7 @@
 #Instalar librerias
 # install.packages("readxl")
 # install.packages("tidyverse")
+# install.packages("readOffice")
 library(readxl)
 library(tidyverse)
 library(readOffice)
