@@ -23,9 +23,9 @@ datos <- read_excel(baseDeDatos)
 # Observar datos iniciales
 View(datos)
 
-data <- as.data.frame(datos)
+#Renombrar nombres de columnas para mejor manipulacion
+datosYColumnasMejorados <- datos %>% rename_all(funs(str_replace_all(tolower(.), " ", "_")))
+datosYColumnasMejorados <- datosYColumnasMejorados %>% rename_all(funs(str_replace_all(., regex("[()]+"), "")))
 
-for (i in data) {
-  print(i)
-  break
-}
+#Observar datos con nuevos nombres de columnas
+View(datosYColumnasMejorados)
