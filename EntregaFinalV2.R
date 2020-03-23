@@ -15,6 +15,7 @@ library(rvest)
 library(broom)
 library(tidyverse)
 library(factoextra)
+library(cluster)
 
 #Esta leyendo del archivo de excel una hoja determinada
 datosiniciales <- read_excel("quejas_clientes_electrico_v2.xlsx",sheet = "Datos iniciales")
@@ -93,7 +94,12 @@ dl_plot_k <- data_aug %>%
 # geom_text(aes(label = Parte), size = 2)
 
 dl_plot_k +
-  labs(title="Cluster",
+  labs(title="Modelo de Cluster",
        x="Millas",
        y="Costo") +
   theme(text = element_text(size=10), axis.text.x = element_text(angle = 90, hjust = 1))
+
+fviz_cluster(make_clusters, data = datosInicialesSegmentados, geom = "point") +
+labs(title="Modelo de Cluster",
+       x="Millas",
+       y="Costo")
